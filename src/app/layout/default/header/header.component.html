@@ -1,0 +1,66 @@
+<nz-header>
+  <div class="header-logo" [ngStyle]="{'width':isCollapsed?'80px':'200px'}">
+    <span *ngIf="!isCollapsed">后台管理系统</span>
+    <i nz-icon nzType="sketch" nzTheme="outline" *ngIf="isCollapsed"></i>
+  </div>
+  <div class="header-switch">
+    <i nz-icon [nzType]="isCollapsed?'menu-unfold':'menu-fold'" nzTheme="outline" (click)="changeIcon()"></i>
+    <!-- <span nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="changeIcon()"></span> -->
+  </div>
+  <div class="header-info">
+    <div class="header-info-left">
+      <div class="header-info-item" *ngIf="resize>500">
+        <a href="https://github.com/ZhouRenYou/ng-deerway" target="_blank"><i nz-icon nzType="github" nzTheme="outline"></i></a>
+      </div>
+      <div class="header-info-item" *ngIf="resize>900">
+        <i nz-icon nzType="calendar" nzTheme="outline"></i>
+      </div>
+      <div class="header-info-item" *ngIf="resize>900">
+        <i nz-icon nzType="sound" nzTheme="outline"></i>
+      </div>
+      <div class="header-info-search" *ngIf="resize>900">
+        <nz-input-group [nzSuffix]="suffixIconSearch" [ngStyle]="{'width': resize < 1300 ? '200px':'300px'}">
+          <input type="text" nz-input placeholder="搜索：员工、文件、照片等">
+        </nz-input-group>
+      </div>
+      <div class="header-info-item" *ngIf="resize>1200">
+        <i nz-icon nzType="barcode" nzTheme="outline"></i>
+      </div>
+      <div class="header-info-item" *ngIf="resize>1200">
+        <i nz-icon nzType="message" nzTheme="outline"></i>
+      </div>
+      <div class="header-info-item" *ngIf="resize>1200">
+        <i nz-icon nzType="appstore" nzTheme="outline"></i>
+      </div>
+      <div class="header-info-item" *ngIf="resize>1200">
+        <i nz-icon nzType="mail" nzTheme="outline"></i>
+      </div>
+      <div class="header-info-item" *ngIf="resize>1200">
+        <i nz-icon nzType="shop" nzTheme="outline"></i>
+      </div>
+    </div>
+    <div class="header-info-right" *ngIf="resize>500">
+      <div class="header-info-item">
+        <ng-container>
+          <a nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomCenter'">
+            admin
+          </a>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu nzSelectable>
+              <li nz-menu-item>
+                <a>个人中心</a>
+              </li>
+              <li nz-menu-item (click)="logout()">
+                <a>退出</a>
+              </li>
+            </ul>
+          </nz-dropdown-menu>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</nz-header>
+<ng-template #suffixIconSearch>
+  <i nz-icon nzType="search"></i>
+</ng-template>
+

@@ -43,73 +43,32 @@ export class MenusService {
       ]
     },
     {
-      text: '动画剧场',
-      link: '',
-      icon: 'bank',
-      children: [
-        {
-          text: '动画示例',
-          link: 'animations/animation',
-          icon: '',
-        }
-      ]
-    },
-    {
-      text: '百度地图',
+      text: '高德地图',
       link: '',
       icon: 'compass',
       children: [
         {
-          text: '开始',
+          text: '基础使用',
           link: 'map/start',
           icon: '',
         },
         {
-          text: '地图标点',
+          text: '地图图层',
+          link: 'map/layers',
+          icon: '',
+        },
+        {
+          text: '地图标记',
           link: 'map/marker',
           icon: '',
         },
         {
-          text: '地图围栏',
-          link: 'map/demo',
+          text: '插件工具',
+          link: 'map/tool',
           icon: '',
         },
       ]
     },
-    {
-      text: '插件工坊',
-      link: '',
-      icon: 'usb',
-      children: [
-        {
-          text: '表单打印',
-          link: 'outside/html2canvas',
-          icon: '',
-        },
-        {
-          text: '二维码',
-          link: 'outside/qrious',
-          icon: '',
-        }
-      ]
-    },
-    {
-      text: '全屏中心',
-      link: '',
-      icon: 'experiment',
-      children: [
-        {
-          text: 'Demo',
-          link: '/fullscreen/experiment/demo',
-          icon: '',
-        },
-        {
-          text: '设备报警',
-          link: '/fullscreen/experiment/warining',
-          icon: '',
-        }
-      ]
-    }
   ];
   menus() {
     return this._Menus;

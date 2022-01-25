@@ -15,8 +15,12 @@ const routes: Routes = [
     children: [
         { path: '', redirectTo: 'list', pathMatch: 'full' },
         {
-            path: 'list',
-            loadChildren: () => import('./list/list.module').then(m => m.ListModule)
+          path: 'index',
+          loadChildren: () => import('./list/index/index.module').then(m => m.IndexModule)
+        },
+        {
+          path: 'list',
+          loadChildren: () => import('./list/list.module').then(m => m.ListModule)
         }
         
 

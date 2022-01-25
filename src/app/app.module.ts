@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { zh_CN } from 'ng-zorro-antd/i18n';
@@ -15,6 +16,7 @@ import { LayoutModule } from './layout/layout.module';
 
 registerLocaleData(zh);
 
+// AppModule应该 导入 SharedModule、CoreModule、LayoutModule、RouterModule、Angular 模块(例如：BrowserModule、BrowserAnimationsModule、HttpClientModule)；
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +25,7 @@ registerLocaleData(zh);
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
     RoutesModule,

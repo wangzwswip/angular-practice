@@ -8,62 +8,105 @@ export class MenusService {
   constructor() { }
   _Menus = [
     {
-      text: '首页',
+      title: '首页',
       link: 'index',
       icon: 'home',
+      level: 1,
+      open: false,
+      selected: false,
+      disabled: false,
       children: []
     },
     {
-      text: '图表',
+      title: '图表',
       link: '',
       icon: 'line-chart',
+      level: 1,
+      open: false,
+      selected: false,
+      disabled: false,
       children: [
         {
-          text: '折线图',
+          title: '折线图',
           link: 'charts/line',
           icon: '',
+          level: 2,
+          selected: false,
+          disabled: false,
+        },
+        {
+          title: '柱状图',
+          link: '',
+          icon: '',
+          level: 2,
+          open: false,
+          selected: false,
+          disabled: false,
+          children: [
+            {
+              title: '基础图',
+              link: 'charts/bar/one',
+              icon: '',
+              level: 3,
+              selected: false,
+              disabled: false,
+
+            }
+          ]
         }
       ]
     },
     {
-      text: '列表页',
+      title: '列表页',
       link: '',
       icon: 'appstore',
+      level: 1,
+      open: false,
+      selected: false,
+      disabled: false,
       children: [
         {
-          text: '基础表格',
+          title: '基础表格',
           link: 'list/list-table',
+          level: 2,
+          open: false,
+          selected: false,
+          disabled: false,
           icon: '',
         },
         {
-          text: '菜单管理',
+          title: '菜单管理',
           link: 'list/tree',
           icon: '',
+          level: 2,
+          open: false,
+          selected: false,
+          disabled: false,
         }
       ]
     },
     {
-      text: '高德地图',
+      title: '高德地图',
       link: '',
       icon: 'compass',
       children: [
         {
-          text: '基础使用',
+          title: '基础使用',
           link: 'map/start',
           icon: '',
         },
         {
-          text: '地图图层',
+          title: '地图图层',
           link: 'map/layers',
           icon: '',
         },
         {
-          text: '地图标记',
+          title: '地图标记',
           link: 'map/marker',
           icon: '',
         },
         {
-          text: '插件工具',
+          title: '插件工具',
           link: 'map/tool',
           icon: '',
         },
@@ -78,7 +121,7 @@ export class MenusService {
 export interface Menu {
   [key: string]: any;
   /** 文本 */
-  text: string;
+  title: string;
   /** 路由 */
   link?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';

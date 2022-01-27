@@ -15,7 +15,6 @@ export class MenusService {
       open: false,
       selected: false,
       disabled: false,
-      children: []
     },
     {
       title: '图表',
@@ -28,11 +27,22 @@ export class MenusService {
       children: [
         {
           title: '折线图',
-          link: 'charts/line',
+          link: '',
           icon: '',
           level: 2,
           selected: false,
           disabled: false,
+          children: [
+            {
+              title: '基础图',
+              link: 'charts/line/one',
+              icon: '',
+              level: 3,
+              selected: false,
+              disabled: false,
+
+            }
+          ]
         },
         {
           title: '柱状图',

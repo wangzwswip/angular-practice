@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 import { BarRoutingModule } from './bar-routing.module';
-import { OneComponent } from './one/one.component';
+import { BarOneComponent } from './bar-one/bar-one.component';
 
 
 @NgModule({
   declarations: [
-    OneComponent
+    BarOneComponent
   ],
   imports: [
     CommonModule,

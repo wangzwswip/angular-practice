@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-line',
-  templateUrl: './line.component.html',
-  styleUrls: ['./line.component.scss']
+  selector: 'app-one',
+  templateUrl: './line-one.component.html',
+  styleUrls: ['./line-one.component.scss']
 })
-export class LineComponent implements OnInit {
+export class LineOneComponent implements OnInit {
+
   options: any
   constructor() { }
 
@@ -52,5 +53,4 @@ export class LineComponent implements OnInit {
       animationDelayUpdate: (idx: number) => idx * 5,
     };
   }
-
 }

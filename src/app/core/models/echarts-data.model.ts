@@ -18,3 +18,10 @@ export interface GantterItem {
   level?: number,
   value: Array<string>
 }
+
+export interface Pie3D {
+  name: string,
+  value: number,
+  startRatio: number,
+  endRatio: number,
+}

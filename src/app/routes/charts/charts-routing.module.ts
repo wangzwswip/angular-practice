@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'gantter',
     loadChildren: () => import('./gantter/gantter.module').then(m => m.GantterModule)
+  },
+  {
+    path: 'pie',
+    loadChildren: () => import('./pie/pie.module').then(m => m.PieModule)
   }
 ];
 

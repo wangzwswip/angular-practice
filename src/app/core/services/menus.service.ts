@@ -97,6 +97,25 @@ export class MenusService {
               disabled: false,
             },
           ]
+        },
+        {
+          title: '饼图',
+          link: '',
+          icon: '',
+          level: 2,
+          open: false,
+          selected: false,
+          disabled: false,
+          children: [
+            {
+              title: '3D图',
+              link: 'charts/pie/one',
+              icon: '',
+              level: 3,
+              selected: false,
+              disabled: false,
+            },
+          ]
         }
       ]
     },

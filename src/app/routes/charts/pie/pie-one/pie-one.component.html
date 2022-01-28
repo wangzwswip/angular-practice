@@ -1,0 +1,16 @@
+
+<div class="charts-container">
+  <div class="chart-title">
+    <div class="left">折线图</div>
+    <div class="right"></div>
+  </div>
+    
+  <div
+    class="chart-content"
+    echarts
+    [options]="options"
+    (chartInit)="onChartInit($event)"
+    (chartGlobalOut)="onOut($event)"
+    (chartMouseOver)="onOver($event)">
+  </div>
+</div>

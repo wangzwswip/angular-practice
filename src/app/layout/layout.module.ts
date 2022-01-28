@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@shared';
 
 import { PassportComponent } from './passport/passport.component';
 import { DefaultComponent } from './default/default.component';

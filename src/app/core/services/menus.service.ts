@@ -60,8 +60,42 @@ export class MenusService {
               level: 3,
               selected: false,
               disabled: false,
-
+            },
+            {
+              title: '对立图',
+              link: 'charts/bar/two',
+              icon: '',
+              level: 3,
+              selected: false,
+              disabled: false,
             }
+          ]
+        },
+        {
+          title: '甘特图',
+          link: '',
+          icon: '',
+          level: 2,
+          open: false,
+          selected: false,
+          disabled: false,
+          children: [
+            {
+              title: '类别图',
+              link: 'charts/gantter/one',
+              icon: '',
+              level: 3,
+              selected: false,
+              disabled: false,
+            },
+            {
+              title: '时间图',
+              link: 'charts/gantter/two',
+              icon: '',
+              level: 3,
+              selected: false,
+              disabled: false,
+            },
           ]
         }
       ]

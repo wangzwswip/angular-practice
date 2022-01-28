@@ -16,6 +16,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "suppressImplicitAnyIndexErrors": true,
     "target": "es2017",
     "module": "es2020",
     "lib": [
@@ -24,10 +25,10 @@
     ],
     "paths": {
       "@shared": [
-        "src/app/shared"
+        "src/app/shared/index"
       ],
       "@core": [
-        "src/app/core"
+        "src/app/core/index"
       ],
       "@env": [
         "src/environments"
@@ -35,7 +36,7 @@
       "@assets": [
         "src/assets"
       ]
-    }
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

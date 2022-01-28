@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'bar',
     loadChildren: () => import('./bar/bar.module').then(m => m.BarModule)
+  },
+  {
+    path: 'gantter',
+    loadChildren: () => import('./gantter/gantter.module').then(m => m.GantterModule)
   }
 ];
 

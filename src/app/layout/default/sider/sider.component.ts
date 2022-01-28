@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MenusService } from 'src/app/core/menus/menus.service';
+import { MenusService } from '@core';
 
 @Component({
   selector: 'app-sider',

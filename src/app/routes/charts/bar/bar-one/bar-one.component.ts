@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-bar-one',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class BarOneComponent implements OnInit {
 
   options: any
-  constructor() { }
+  constructor(private message: NzMessageService) { }
 
   ngOnInit(): void {
     const xAxisData = [];
@@ -52,6 +53,12 @@ export class BarOneComponent implements OnInit {
       animationEasing: 'elasticOut',
       animationDelayUpdate: (idx: number) => idx * 5,
     };
+  }
+
+  onChartEvent (event: any, type: string) {
+    console.log('事件类型', type);
+    this.message.create('success', `触发事件-${type}`);
+    
   }
 
 }

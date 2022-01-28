@@ -1,1 +1,11 @@
-<div echarts [options]="options"  class="demo-chart"></div>
+<div class="charts-container">
+  <div class="chart-title">
+    <div class="left">柱状图</div>
+    <div class="right"></div>
+  </div>
+    
+  <div class="chart-content" echarts [options]="options" (chartInit)="onChartEvent($event, 'chartInit')"
+  (chartClick)="onChartEvent($event, 'chartClick')"
+  (chartDblClick)="onChartEvent($event, 'chartDblClick')">
+  </div>
+</div>

@@ -3,22 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { NgxEchartsModule } from 'ngx-echarts';
 
-import { BarRoutingModule } from './bar-routing.module';
-import { BarOneComponent } from './bar-one/bar-one.component';
-import { BarTwoComponent } from './bar-two/bar-two.component';
+import { GantterRoutingModule } from './gantter-routing.module';
+import { GantterOneComponent } from './gantter-one/gantter-one.component';
+import { GantterTwoComponent } from './gantter-two/gantter-two.component';
 
 
 @NgModule({
   declarations: [
-    BarOneComponent,
-    BarTwoComponent
+    GantterOneComponent,
+    GantterTwoComponent
   ],
   imports: [
     CommonModule,
-    BarRoutingModule,
+    GantterRoutingModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
     }),
   ]
 })
-export class BarModule { }
+export class GantterModule { }

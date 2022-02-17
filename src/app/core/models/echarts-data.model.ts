@@ -25,3 +25,8 @@ export interface Pie3D {
   startRatio: number,
   endRatio: number,
 }
+
+export interface mapData {
+  name: string,
+  value: Array<number>
+}

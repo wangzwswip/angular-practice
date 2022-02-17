@@ -9,6 +9,9 @@ import zh from '@angular/common/locales/zh';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 
 import { RoutesModule } from './routes/routes.module';
@@ -16,6 +19,7 @@ import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@shared';
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 
 registerLocaleData(zh);
 
@@ -29,11 +33,14 @@ registerLocaleData(zh);
     AppRoutingModule,
     FormsModule,
     SharedModule,
+    CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
     RoutesModule,
     LayoutModule,
-    
+    LoadingBarModule,
+    LoadingBarRouterModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

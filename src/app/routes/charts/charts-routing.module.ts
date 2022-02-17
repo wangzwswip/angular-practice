@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'pie',
     loadChildren: () => import('./pie/pie.module').then(m => m.PieModule)
+  },
+  {
+    path: 'other',
+    loadChildren: () => import('./other/other.module').then(m => m.OtherModule)
   }
 ];
 

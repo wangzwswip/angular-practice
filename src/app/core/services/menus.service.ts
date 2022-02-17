@@ -116,6 +116,25 @@ export class MenusService {
               disabled: false,
             },
           ]
+        },
+        {
+          title: '其他',
+          link: '',
+          icon: '',
+          level: 2,
+          open: false,
+          selected: false,
+          disabled: false, 
+          children: [
+            {
+              title: '地图',
+              link: 'charts/other/one',
+              icon: '',
+              level: 3,
+              selected: false,
+              disabled: false,
+            },
+          ]
         }
       ]
     },
@@ -175,6 +194,18 @@ export class MenusService {
         },
       ]
     },
+    {
+      title: '其他',
+      link: '',
+      icon: 'compass',
+      children: [
+        {
+          title: '父子通信',
+          link: 'other/connection',
+          icon: '',
+        },
+      ]
+    }
   ];
   menus() {
     return this._Menus;

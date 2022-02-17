@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MenusService, ColorService } from './services';
+import { MenusService, ColorService, BootingSpinnerService, ApiService, MissionService } from './services';
 
 // 应该 只保留providers属性
 
@@ -12,7 +12,10 @@ import { MenusService, ColorService } from './services';
   ],
   providers: [
     MenusService,
-    ColorService
+    ColorService,
+    BootingSpinnerService,
+    ApiService,
+    MissionService
   ]
 })
 export class CoreModule { }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
+import { BootingSpinnerService, ApiService } from '@core';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private notificationsService: NotificationsService,
+    private spinnerService: BootingSpinnerService,
+    private apiService: ApiService
   ) {
     this.form = this.fb.group({
       userName: [null, [Validators.required]],
@@ -38,9 +43,20 @@ export class LoginComponent implements OnInit {
       };
       this.loading = true;
       this.loadingDescription = '登录中...';
-      if (loginParams.loginId === 'admin' && loginParams.passcode === '12345678') {
-        this.router.navigateByUrl('default/list');
+      this.spinnerService.show()
+      let params = {
+        username: this.form.value['userName'],
+        password: this.form.value['password']
       }
+      this.apiService.post('/login', params).subscribe(e => {
+        if (e.code === 200) {
+          this.spinnerService.hide()
+          this.notificationsService.success('登录成功','欢迎回来')
+          this.router.navigateByUrl('default/list');
+        }
+      })
+      
+      
     } else {
       Object.values(this.form.controls).forEach(control => {
         if (control.invalid) {

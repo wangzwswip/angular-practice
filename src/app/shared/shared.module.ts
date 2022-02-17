@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 
@@ -25,6 +26,7 @@ const SHARED = [
   ReactiveFormsModule,
   FormsModule,
   RouterModule,
+  HttpClientModule,
   NzLayoutModule,
   NzIconModule,
   NzInputModule,

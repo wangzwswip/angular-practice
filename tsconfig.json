@@ -30,11 +30,17 @@
       "@core": [
         "src/app/core/index"
       ],
-      "@env": [
+      "@environments": [
         "src/environments"
       ],
       "@assets": [
         "src/assets"
+      ],
+      "@app":[
+        "src/app"
+      ],
+      "@":[
+        "src"
       ]
     },
   },

@@ -6,12 +6,14 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { BarRoutingModule } from './bar-routing.module';
 import { BarOneComponent } from './bar-one/bar-one.component';
 import { BarTwoComponent } from './bar-two/bar-two.component';
+import { BarThreeComponent } from './bar-three/bar-three.component';
 
 
 @NgModule({
   declarations: [
     BarOneComponent,
-    BarTwoComponent
+    BarTwoComponent,
+    BarThreeComponent
   ],
   imports: [
     CommonModule,

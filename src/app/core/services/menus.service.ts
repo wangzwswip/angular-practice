@@ -204,6 +204,11 @@ export class MenusService {
           link: 'other/connection',
           icon: '',
         },
+        {
+          title: '录屏',
+          link: 'other/screen',
+          icon: '',
+        },
       ]
     }
   ];

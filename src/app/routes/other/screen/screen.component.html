@@ -1,0 +1,13 @@
+<div class="screen-warp">
+  <div class="screen-head">
+    <button nz-button nzType="primary" class="head-button" [disabled]="shareButton" (click)="startShare()">屏幕共享</button>
+    <button nz-button nzType="primary" class="head-button" [disabled]="startButton" (click)="startRecord()">开始录制</button>
+    <button nz-button nzType="primary" class="head-button" [disabled]="endButton" (click)="endRecord()">结束录制</button>
+    <nz-alert nzType="info" nzMessage="下载的录制视频需用chrome打开，本地视频播放器可能不支持该视频格式" nzShowIcon></nz-alert>
+  </div>
+  <nz-divider></nz-divider>
+  <div class="screen-content" id="screen">
+    <canvas id="parent" style="visibility: hidden;"></canvas>
+    <video id="show" height="100%" width="100%" class="video-wrap"></video>
+  </div>
+</div>

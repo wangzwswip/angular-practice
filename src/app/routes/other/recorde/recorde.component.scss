@@ -1,0 +1,250 @@
+$-audio-width: 80px;
+$-audio-width-one: 130px;
+$-audio-width-two: 120px;
+$-audio-width-three: 110px;
+$-audio-width-four: 100px;
+
+.recorde-wrap {
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.recorde-left {
+  display: flex;
+  flex-direction: column;
+  .recorde-command {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    button {
+      margin: 0 10px;
+    }
+  }
+  .radio-recorde {
+    width: 100%;
+    height: 140px;
+    margin-top: 80px;
+    background: transparent;
+    box-sizing: border-box;
+    position: relative;
+    box-sizing: border-box;
+    .level-one,
+    .level-two,
+    .level-three,
+    .level-four {
+      width: $-audio-width;
+      height: $-audio-width;
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background: rgba(8, 132, 198, 1.0);
+      opacity: 0;
+    }
+
+    .icon {
+      width: $-audio-width;
+      height: $-audio-width;
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      background: rgba(8, 132, 198, 1.0);
+
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .radio-recorde__acive {
+    .level-one,
+    .level-two,
+    .level-three,
+    .level-four {
+      width: $-audio-width;
+      height: $-audio-width;
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background: rgb(2, 187, 139);
+      opacity: 0;
+    }
+
+    .level-one {
+      animation: animation-one 2s ease-in-out infinite;
+    }
+
+    .level-two {
+      animation: animation-two 2s ease-in-out infinite;
+    }
+
+    .level-three {
+      animation: animation-three 2s ease-in-out infinite;
+    }
+
+    .level-four {
+      animation: animation-four 2s ease-in-out infinite;
+    }
+
+    @keyframes animation-one {
+      0% {
+        opacity: 0;
+        width: $-audio-width;
+        height: $-audio-width;
+      }
+
+      50% {
+        opacity: 0.2;
+        width: $-audio-width-one;
+        height: $-audio-width-one;
+      }
+
+      100% {
+        opacity: 0;
+        width: $-audio-width;
+        height: $-audio-width;
+      }
+    }
+
+    @keyframes animation-two {
+      0% {
+        opacity: 0;
+        width: $-audio-width;
+        height: $-audio-width;
+      }
+
+      45% {
+        opacity: 0.3;
+        width: $-audio-width-two;
+        height: $-audio-width-two;
+      }
+
+      55% {
+        opacity: 0.3;
+        width: $-audio-width-two;
+        height: $-audio-width-two;
+      }
+
+      100% {
+        opacity: 0;
+        width: $-audio-width;
+        height: $-audio-width;
+      }
+    }
+
+    @keyframes animation-three {
+      0% {
+        opacity: 0;
+        width: $-audio-width;
+        height: $-audio-width;
+      }
+
+      40% {
+        opacity: 0.4;
+        width: $-audio-width-three;
+        height: $-audio-width-three;
+      }
+
+      60% {
+        opacity: 0.4;
+        width: $-audio-width-three;
+        height: $-audio-width-three;
+      }
+
+      100% {
+        opacity: 0;
+        width: $-audio-width;
+        height: $-audio-width;
+      }
+    }
+
+    @keyframes animation-four {
+      0% {
+        opacity: 0;
+        width: $-audio-width;
+        height: $-audio-width;
+      }
+
+      35% {
+        opacity: 0.5;
+        width: $-audio-width-four;
+        height: $-audio-width-four;
+      }
+
+      65% {
+        opacity: 0.5;
+        width: $-audio-width-four;
+        height: $-audio-width-four;
+      }
+
+      100% {
+        opacity: 0;
+        width: $-audio-width;
+        height: $-audio-width;
+      }
+    }
+
+    .icon {
+      background: rgb(2, 187, 139);
+    }
+  }
+  .recorde-test {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .radio-control {
+      color: #000;
+      height: 80px;
+      margin-top: 20px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      i {
+        color: #000;
+        font-size: 34px;
+        cursor: pointer;
+        transition: color 0.3s;
+        &:hover {
+          color: #0689fd;
+        }
+      }
+      .slider {
+        width: 240px;
+        margin-left: 14px;
+      }
+    }
+    .audio {
+      margin-top: 20px;
+    }
+  }
+}
+.recorde-right {
+
+}

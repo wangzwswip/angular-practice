@@ -124,7 +124,7 @@ export class MenusService {
           level: 2,
           open: false,
           selected: false,
-          disabled: false, 
+          disabled: false,
           children: [
             {
               title: '地图',
@@ -207,6 +207,11 @@ export class MenusService {
         {
           title: '录屏',
           link: 'other/screen',
+          icon: '',
+        },
+        {
+          title: '录音',
+          link: 'other/recorde',
           icon: '',
         },
       ]

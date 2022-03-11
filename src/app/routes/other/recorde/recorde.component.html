@@ -1,0 +1,35 @@
+<div nz-row class="recorde-wrap">
+  <div nz-col nzSpan="12" class="recorde-left">
+    <h2>使用webRtc api, MediaRecorder 输出webm格式音频</h2>
+    <nz-divider></nz-divider>
+    <div class="recorde-command">
+      <button nz-button nzType="primary" [disabled]="initButton" (click)="handleSelfCommand(0)">初始化</button>
+      <button nz-button nzType="primary" [disabled]="startButton" (click)="handleSelfCommand(1)">开始</button>
+      <button nz-button nzType="primary" [disabled]="pauseButton" (click)="handleSelfCommand(2)">暂停</button>
+      <button nz-button nzType="primary" [disabled]="resumeButton" (click)="handleSelfCommand(3)">恢复</button>
+      <button nz-button nzType="primary" [disabled]="stopButton" (click)="handleSelfCommand(4)">结束</button>
+      <button nz-button nzType="primary" [disabled]="downloadButton" (click)="handleSelfCommand(5)">下载</button>
+      <button nz-button nzType="primary" [disabled]="submitButton" (click)="handleSelfCommand(6)">上传</button>
+    </div>
+    <div  [class]="{'radio-recorde': true, 'radio-recorde__acive': isRecording}">
+      <div class="level-one"></div>
+      <div class="level-two"></div>
+      <div class="level-three"></div>
+      <div class="level-four"></div>
+      <div class="icon">
+        <i nz-icon nzType="audio" nzTheme="outline"></i>
+      </div>
+    </div>
+    <div class="recorde-test">
+      <h3>测试录音结果</h3>
+      <div class="radio-control">
+        <i nz-icon nzType="play-circle" nzTheme="outline" *ngIf="!isPlay" (click)="handlePlay(true)"></i>
+        <i nz-icon nzType="pause" nzTheme="outline" *ngIf="isPlay" (click)="handlePlay(false)"></i>
+        <nz-slider [(ngModel)]="radioVocie" [nzMax]="1" [nzStep]="0.01" class="slider" (ngModelChange)="handleSlideChange($event)"></nz-slider>
+      </div>
+<!--      <audio id="recorde-radio" controls class="audio" [volume]="radioVocie"></audio>-->
+      <audio id="recorde-radio" controls class="audio"></audio>
+    </div>
+  </div>
+  <div nz-col nzSpan="12" class="recorde-right">col-12</div>
+</div>

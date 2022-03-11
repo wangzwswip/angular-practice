@@ -4,6 +4,7 @@ const CAMERA_VIDEO_HEIGHT = 200
 let cameraVideo:any = null
 let screenVideo:any = null
 let recorder:any
+
 @Component({
   selector: 'app-screen',
   templateUrl: './screen.component.html',
@@ -14,7 +15,8 @@ export class ScreenComponent implements OnInit {
   shareButton: boolean = false
   startButton: boolean = true
   endButton: boolean = true
-  
+  playButton: boolean = true
+
   parentWidth: number = 0
   parentHeight: number = 0
   canvasOne: any = null
@@ -23,7 +25,7 @@ export class ScreenComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setTimeout(() => {      
+    setTimeout(() => {
       let parent: any = document.getElementById('screen')
       this.parentWidth = parent.clientWidth
       this.parentHeight = parent.clientHeight
@@ -33,17 +35,19 @@ export class ScreenComponent implements OnInit {
       this.canvasContext = this.canvasOne.getContext('2d')
     }, 0);
 
-    
+
   }
 
   startShare() {
     this.shareButton = true
-    this.startButton = false
+
     this.initResource()
   }
 
   async initResource() {
+    let that = this
     const screenStream = await navigator.mediaDevices.getDisplayMedia()
+
     const cameraStream = await navigator.mediaDevices.getUserMedia({
       video: true,
       audio: false
@@ -51,6 +55,12 @@ export class ScreenComponent implements OnInit {
     const audioStream = await navigator.mediaDevices.getUserMedia({
       video: false,
       audio: true
+    })
+
+    screenStream.getVideoTracks()[0].addEventListener('ended',() => {
+      that.shareButton = false
+      audioStream.getTracks().forEach(track => track.stop())
+      cameraStream.getTracks().forEach(track => track.stop())
     })
     cameraVideo = this.createStreamVideo(cameraStream)
     screenVideo = this.createStreamVideo(screenStream)
@@ -63,17 +73,16 @@ export class ScreenComponent implements OnInit {
     recorderVideoStream
       .getVideoTracks()
       .forEach((track: MediaStreamTrack) => stream.addTrack(track))
-    // let video : any = document.getElementById('show')
+    let video : any = document.getElementById('recorde-result')
     // video.srcObject = stream
     // video.play()
-    console.log('这里执行了吗');
     let allChunks: BlobPart[] = []
     recorder = new MediaRecorder(stream, {
       mimeType: 'video/webm;codecs=vp8,opus'
     })
     // recorder.blobs = []
     recorder.ondataavailable = (e:any) => {
-      // video.src = URL.createObjectURL(e.data)
+      video.src = URL.createObjectURL(e.data)
       // recorder.blobs.push(e.data)
       allChunks.push(e.data)
     }
@@ -82,12 +91,14 @@ export class ScreenComponent implements OnInit {
       let link = document.createElement('a')
       // const fullBlob = new Blob(allChunks)
       const fullBlob = new Blob(allChunks, { type: recorder.mimeType })
-      const downloadUrl = window.URL.createObjectURL(fullBlob)
-      link.href = downloadUrl
+      link.href = window.URL.createObjectURL(fullBlob)
       link.download = 'media.mp4'
       link.click()
+      audioStream.getAudioTracks().forEach(track => track.stop())
+      cameraStream.getAudioTracks().forEach(track => track.stop())
     }
-    
+    this.startButton = false
+
   }
 
   createStreamVideo (stream: any) {
@@ -101,7 +112,7 @@ export class ScreenComponent implements OnInit {
   animationFrameHandler() {
     let doc: any = document.getElementById('parent')
     let canvas = doc.getContext('2d')
-    
+
     // canvas.clearRect(0, 0, this.parentWidth, this.parentHeight);
     if (screenVideo) {
       canvas.drawImage(screenVideo, 0, 0, this.parentWidth, this.parentHeight)
@@ -118,16 +129,27 @@ export class ScreenComponent implements OnInit {
     }
     this.ids = requestAnimationFrame(this.animationFrameHandler.bind(this))
   }
-  startRecord () {
+  startRecorde () {
+    let video : any = document.getElementById('recorde-result')
+    video.style.opacity = 0
     this.startButton = true // 禁用按钮
     this.endButton = false
     recorder.start()
   }
 
-  endRecord () {
+
+  endRecorde () {
+    let video : any = document.getElementById('recorde-result')
+    video.style.opacity = 1
     this.startButton = false // 禁用按钮
     this.endButton = true
     recorder.stop()
+    this.playButton = false
+  }
+  // 播放录制的视频
+  playRecorde () {
+    let video : any = document.getElementById('recorde-result')
+    video.play()
   }
 
   ngOnDestroy () {

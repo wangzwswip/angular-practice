@@ -31,5 +31,30 @@
       <audio id="recorde-radio" controls class="audio"></audio>
     </div>
   </div>
-  <div nz-col nzSpan="12" class="recorde-right">col-12</div>
+  <div nz-col nzSpan="12" class="recorde-left">
+    <h2>使用Record.js第三方库，做浏览器兼容和输出音频格式兼容</h2>
+    <nz-divider></nz-divider>
+    <div class="recorde-command">
+      <button nz-button nzType="primary" [disabled]="initButtonRight" (click)="handleRightCommand(0)">初始化</button>
+      <button nz-button nzType="primary" [disabled]="startButtonRight" (click)="handleRightCommand(1)">开始</button>
+      <button nz-button nzType="primary" [disabled]="pauseButtonRight" (click)="handleRightCommand(2)">暂停</button>
+      <button nz-button nzType="primary" [disabled]="resumeButtonRight" (click)="handleRightCommand(3)">恢复</button>
+      <button nz-button nzType="primary" [disabled]="stopButtonRight" (click)="handleRightCommand(4)">结束</button>
+      <button nz-button nzType="primary" [disabled]="downloadButtonRight" (click)="handleRightCommand(5)">下载</button>
+      <button nz-button nzType="primary" [disabled]="submitButtonRight" (click)="handleRightCommand(6)">上传</button>
+    </div>
+    <div  [class]="{'radio-recorde': true, 'radio-recorde__acive': isRecordingRight}">
+      <div class="level-one"></div>
+      <div class="level-two"></div>
+      <div class="level-three"></div>
+      <div class="level-four"></div>
+      <div class="icon">
+        <i nz-icon nzType="audio" nzTheme="outline"></i>
+      </div>
+    </div>
+    <div class="recorde-test">
+      <h3>测试录音结果</h3>
+      <audio id="recorde-radio-right" controls class="audio"></audio>
+    </div>
+  </div>
 </div>

@@ -26,6 +26,19 @@ export class RecordeComponent implements OnInit {
   private _test: Subject<number> = new Subject<number>();
   test$ = this._test.asObservable()
 
+  // 右侧变量
+  initButtonRight: boolean = false
+  startButtonRight: boolean = true
+  pauseButtonRight: boolean = true
+  resumeButtonRight: boolean = true
+  stopButtonRight: boolean = true
+  downloadButtonRight: boolean = true
+  submitButtonRight: boolean = true
+  isPlayRight: boolean = false
+  newRec? :any
+  recorderRight? :any
+  fullBlobRight: Blob = new Blob()
+  isRecordingRight: boolean = false
   constructor(private message: NzMessageService) {
   }
 
@@ -191,6 +204,111 @@ export class RecordeComponent implements OnInit {
     }
   }
 
+  // 右侧方法
+  handleRightCommand(type: number) {
+    switch (type) {
+      case 0:
+        // 初始化
+        this.initButtonRight = true
+        this.initRecordeRight()
+        break
+      case 1:
+        // 开始录制
+        this.startRecordeRight()
+        break
+      case 2:
+        // 暂停录制
+        this.pauseRecordeRight()
+        break
+      case 3:
+        // 恢复录制
+        this.resumeRecordeRight()
+        break
+      case 4:
+        // 结束录制
+        this.stopRecordeRight()
+        break
+      case 5:
+        // 下载文件
+        this.downloadFileRight()
+        break
+      case 6:
+        // 上传到服务器
+        this.submitFileRight()
+        break
+    }
+
+  }
+
+  // 初始化右边
+  initRecordeRight() {
+    let that = this
+    // @ts-ignore
+    this.newRec = Recorder({
+      type: 'mp3', sampleRate: 16000, bitRate: 16 //mp3格式，指定采样率hz、比特率kbps，其他参数使用默认配置；注意：是数字的参数必须提供数字，不要用字符串；需要使用的type类型，需提前把格式支持文件加载进来，比如使用wav格式需要提前加载wav.js编码引擎
+    })
+    this.newRec.open(function() {//打开麦克风授权获得相关资源
+      that.recorderRight = that.newRec
+      that.startButtonRight = false
+    }, function() {//用户拒绝未授权或不支持
+      that.message.create('error', '获取用户授权失败!');
+    })
+  }
+  // 开始右边录制
+  startRecordeRight(){
+    this.startButtonRight = true
+    this.recorderRight.start()
+    this.pauseButtonRight = false
+    this.stopButtonRight = false
+    this.isRecordingRight = true
+  }
+  // 暂停录制右边
+  pauseRecordeRight(){
+    this.pauseButtonRight = true
+    this.recorderRight.pause()
+    this.resumeButtonRight = false
+    this.isRecordingRight = false
+  }
+  // 恢复右边
+  resumeRecordeRight(){
+    this.resumeButtonRight = true
+    this.recorderRight.resume()
+    this.pauseButtonRight = false
+    this.isRecordingRight = true
+  }
+  // 结束右边录制
+  stopRecordeRight(){
+    let that = this
+    this.stopButtonRight = true
+    this.recorderRight.stop(function(blob: Blob, duration: any) {
+      that.fullBlobRight = blob
+      let radioRight = document.getElementById('recorde-radio-right')
+      // @ts-ignore
+      radioRight!.src = window.URL.createObjectURL(that.fullBlobRight)
+      that.recorderRight.close()
+      that.submitButtonRight = false
+      that.downloadButtonRight = false
+      that.isRecordingRight = false
+      that.initButtonRight = false
+      that.startButtonRight = true
+      that.resumeButtonRight = true
+      that.pauseButtonRight = true
+    })
+
+  }
+  // 右边下载文件
+  downloadFileRight(){
+    let link = document.createElement('a')
+    const downloadUrl = window.URL.createObjectURL(this.fullBlobRight)
+    link.href = downloadUrl
+    link.download = 'media.mp3'
+    link.click()
+    window.URL.revokeObjectURL(downloadUrl)
+  }
+
+  submitFileRight(){
+    this.message.create('success', '上传录音文件成功!');
+  }
   ngOnDestroy(){
     // 取消订阅
     if (this.testUnsub) {

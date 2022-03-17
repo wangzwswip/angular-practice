@@ -1,0 +1,26 @@
+<div class="directive-test">
+  <div class="color-picker">
+    <h1>选择输入颜色</h1>
+    <nz-radio-group [(ngModel)]="radioValue">
+      <label nz-radio nzValue="red">红色</label>
+      <label nz-radio nzValue="green">绿色</label>
+      <label nz-radio nzValue="blue">蓝色</label>
+      <label nz-radio nzValue="black">黑色</label>
+      <label nz-radio nzValue="">置空</label>
+    </nz-radio-group>
+  </div>
+  <div class="color-picker">
+    <h1>选择默认颜色</h1>
+    <nz-radio-group [(ngModel)]="defaultValue">
+      <label nz-radio nzValue="red">红色</label>
+      <label nz-radio nzValue="green">绿色</label>
+      <label nz-radio nzValue="blue">蓝色</label>
+      <label nz-radio nzValue="black">黑色</label>
+    </nz-radio-group>
+  </div>
+  <div [appHighlight]="radioValue" [defaultColor]="defaultValue" class="test-one">
+    <h3>改变背景色指令</h3>
+    <p>可以传递默认值，当前颜色值，鼠标移入变色指令</p>
+
+  </div>
+</div>

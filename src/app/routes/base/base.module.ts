@@ -11,11 +11,13 @@ import { PersonsComponent } from './persons/persons.component';
 import { PersonsSuperComponent } from './persons-super/persons-super.component';
 import { ChildRefSuperDirective } from './child-ref-super.directive';
 import { AdHostDirective } from './ad-host.directive';
+import {HighlightDirective} from "./highlight.directive";
 import { HeroJobComponent } from './hero-job/hero-job.component';
 import { HeroProfileComponent } from './hero-profile/hero-profile.component';
 import {AdBannerComponent} from "./ad-banner.component";
 
 import {AdService} from "./ad.service";
+import { DirectiveExampleComponent } from './directive-example/directive-example.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {AdService} from "./ad.service";
     AdHostDirective,
     HeroJobComponent,
     HeroProfileComponent,
-    AdBannerComponent
+    AdBannerComponent,
+    DirectiveExampleComponent,
+    HighlightDirective
   ],
   providers: [ AdService ],
   imports: [

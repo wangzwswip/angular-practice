@@ -26,6 +26,11 @@ export class MenusService {
           link: 'base/base-one',
           icon: '',
         },
+        {
+          title: '指令相关',
+          link: 'base/directive-example',
+          icon: '',
+        },
       ]
     },
     {

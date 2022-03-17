@@ -1,0 +1,27 @@
+<nz-tabset class="base-one">
+  <nz-tab nzTitle="内容投影">
+    <app-persons>
+      <ng-template appChildRef>
+        <div class="projection">条件投影内容</div>
+      </ng-template>
+
+    </app-persons>
+  </nz-tab>
+  <nz-tab nzTitle="多条件投影">
+    <app-persons-super>
+      <ng-template [appChildRefSuper]="'temp1'" let-person let-index="i">
+        <div style="color: red;">{{index}}-{{person.name}}: this is temp1</div>
+      </ng-template>
+      <ng-template appChildRefSuper="temp2" let-person let-index="i">
+        <div style="color: red;">{{index}}-{{person.name}}: this is temp2</div>
+      </ng-template>
+      <ng-template appChildRefSuper="temp3" let-person let-index="i">
+        <div style="color: red;">{{index}}-{{person.name}}: this is temp3</div>
+      </ng-template>
+    </app-persons-super>
+
+  </nz-tab>
+  <nz-tab nzTitle="动态组件">
+    <app-ad-banner [ads]="ads"></app-ad-banner>
+  </nz-tab>
+</nz-tabset>

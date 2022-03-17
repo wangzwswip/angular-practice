@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges  } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Observable, Subject, filter, debounceTime,distinctUntilChanged,tap, Subscription } from 'rxjs';
 
@@ -46,6 +46,10 @@ export class RecordeComponent implements OnInit {
     setTimeout(() => {
       this.radio = document.getElementById('recorde-radio')
     },0)
+  }
+  // 任何变化，监听频率快，慎用
+  ngDoCheck() {
+    console.log('发生了变化', this.startButton)
   }
 
   /**

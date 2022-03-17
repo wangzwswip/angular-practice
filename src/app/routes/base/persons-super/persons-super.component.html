@@ -1,0 +1,8 @@
+<div class="list-item" *ngFor="let person of persons;let i=index;">
+  <div>Name: {{ person.name }}</div>
+  <div>Money: {{ person.money }}</div>
+  <div *ngIf="person.render && tempRefs[person.render]">
+    <!-- 配合 ngTemplateOutlet 指令给template传递当前person的数据 -->
+    <ng-container *ngTemplateOutlet="tempRefs[person.render].templateRef; context: { $implicit: person, i: i }"></ng-container>
+  </div>
+</div>

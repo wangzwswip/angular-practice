@@ -1,0 +1,10 @@
+<ul class="list-wrap" >
+  <li *ngFor="let person of persons;" class="list-item">
+    <div>Name: {{ person.name }}</div>
+    <div>Money: {{ person.money }}</div>
+    <div *ngIf="person.money > 200">
+      <ng-container *ngIf="childRef" [ngTemplateOutlet]="childRef.templateRef"></ng-container>
+    </div>
+  </li>
+
+</ul>

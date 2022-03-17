@@ -20,6 +20,7 @@ import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzSliderModule } from 'ng-zorro-antd/slider';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
 // 应该 包含 Angular 通用模块(例如：CommonModule、FormsModule、RouterModule、ReactiveFormsModule)、
 // 第三方通用依赖模块、所有组件（自己写的非业务相关的通用组件）、指令、管道；
@@ -46,6 +47,7 @@ const SHARED = [
   NzDividerModule,
   NzGridModule,
   NzSliderModule,
+  NzTabsModule,
 ]
 
 // const COMPONENTS = [

@@ -19,6 +19,10 @@ const routes: Routes = [
           loadChildren: () => import('./list/index/index.module').then(m => m.IndexModule)
         },
         {
+          path: 'base',
+          loadChildren: () => import('./base/base.module').then(m => m.BaseModule)
+        },
+        {
           path: 'list',
           loadChildren: () => import('./list/list.module').then(m => m.ListModule)
         },
@@ -31,10 +35,14 @@ const routes: Routes = [
           loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule)
         },
         {
+          path: 'feature',
+          loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule)
+        },
+        {
           path: 'other',
           loadChildren: () => import('./other/other.module').then(m => m.OtherModule)
         }
-        
+
 
     ]
 },

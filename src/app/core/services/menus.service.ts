@@ -17,6 +17,18 @@ export class MenusService {
       disabled: false,
     },
     {
+      title: '基础',
+      link: '',
+      icon: 'book',
+      children: [
+        {
+          title: '基础一',
+          link: 'base/base-one',
+          icon: '',
+        },
+      ]
+    },
+    {
       title: '图表',
       link: '',
       icon: 'line-chart',
@@ -195,9 +207,21 @@ export class MenusService {
       ]
     },
     {
+      title: '功能',
+      link: '',
+      icon: 'deployment-unit',
+      children: [
+        {
+          title: '对比图',
+          link: 'feature/slide',
+          icon: '',
+        },
+      ]
+    },
+    {
       title: '其他',
       link: '',
-      icon: 'compass',
+      icon: 'node-index',
       children: [
         {
           title: '父子通信',

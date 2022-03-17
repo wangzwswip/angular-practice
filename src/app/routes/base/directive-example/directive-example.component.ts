@@ -9,6 +9,7 @@ export class DirectiveExampleComponent implements OnInit {
   color :string = 'red'
   radioValue: string = ''
   defaultValue: string = 'red'
+  showValue :boolean = true
   constructor() { }
 
   ngOnInit(): void {

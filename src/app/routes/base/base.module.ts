@@ -11,6 +11,7 @@ import { PersonsComponent } from './persons/persons.component';
 import { PersonsSuperComponent } from './persons-super/persons-super.component';
 import { ChildRefSuperDirective } from './child-ref-super.directive';
 import { AdHostDirective } from './ad-host.directive';
+import {UnlessDirective} from "./unless.directive";
 import {HighlightDirective} from "./highlight.directive";
 import { HeroJobComponent } from './hero-job/hero-job.component';
 import { HeroProfileComponent } from './hero-profile/hero-profile.component';
@@ -32,7 +33,8 @@ import { DirectiveExampleComponent } from './directive-example/directive-example
     HeroProfileComponent,
     AdBannerComponent,
     DirectiveExampleComponent,
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective,
   ],
   providers: [ AdService ],
   imports: [

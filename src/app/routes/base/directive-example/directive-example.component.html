@@ -23,4 +23,23 @@
     <p>可以传递默认值，当前颜色值，鼠标移入变色指令</p>
 
   </div>
+  <nz-divider></nz-divider>
+  <div class="color-picker">
+    <p>结构性指令，示例为ngIf的反例</p>
+    <nz-radio-group [(ngModel)]="showValue">
+      <label nz-radio [nzValue]="true">条件为真</label>
+      <label nz-radio [nzValue]="false">条件为假</label>
+    </nz-radio-group>
+  </div>
+  <div *appUnless="showValue" class="test-one">
+    <p>这里内容收上面的值控制</p>
+    <p>UnlessDirective 会通过 Angular 生成的 ng-template 创建一个嵌入的视图，
+      然后将该视图插入到该指令的原始 宿主元素紧后面的视图容器中。</p>
+    <p>TemplateRef可帮助你获取 ng-template 的内容，而 ViewContainerRef 可以访问视图容器。</p>
+    <p>添加一个带 setter 的 @Input() 属性 appUnless。</p>
+    <p>星号是将 appUnless 标记为结构型指令的简写形式。</p>
+    <p>Angular 将结构型指令前面的星号转换为围绕宿主元素及其后代的 ng-template。</p>
+    <p>div 的其余部分（包括其 class 属性）移到了 ng-template 内部。</p>
+    <p>如果没有结构型指令，并且将某些元素包装在 ng-template中，则这些元素会消失。</p>
+  </div>
 </div>

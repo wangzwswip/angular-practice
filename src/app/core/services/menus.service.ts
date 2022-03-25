@@ -221,6 +221,16 @@ export class MenusService {
           link: 'feature/slide',
           icon: '',
         },
+        {
+          title: '拖动测试',
+          link: 'feature/test-drag',
+          icon: '',
+        },
+        {
+          title: '缩放测试',
+          link: 'feature/test-resize',
+          icon: '',
+        }
       ]
     },
     {

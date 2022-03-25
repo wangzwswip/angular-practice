@@ -1,0 +1,29 @@
+<div class="test-drag">
+  <div class="drag-wrap">
+    <div appDraggable class="drag-target">
+      拖动基础使用
+    </div>
+  </div>
+  <div class="drag-wrap" #bound>
+    <div appDraggable [inBounds]="true" [bounds]="bound" class="drag-target">
+      拖动限制边界
+    </div>
+  </div>
+  <div class="drag-wrap" #boundT>
+    <div appDraggable [inBounds]="true" [bounds]="boundT" [handle]="handler" class="drag-target">
+      <div style="height: 20px; background: green;" #handler></div>
+      传入拖动处理元素
+    </div>
+  </div>
+  <div class="drag-wrap" #boundTr>
+    <div appDraggable [inBounds]="true" [bounds]="boundTr" [scale]="0.5" class="drag-target">
+      传入拖动距离系数
+    </div>
+  </div>
+  <div class="drag-wrap" #boundF>
+    <div appDraggable [inBounds]="true" [bounds]="boundF" [lockAxis]="'x'" class="drag-target">
+      锁定在y轴运动
+    </div>
+  </div>
+</div>
+

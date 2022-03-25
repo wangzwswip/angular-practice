@@ -1,0 +1,28 @@
+<div class="test-resize">
+  <div class="resize-wrap">
+    <div [appResizable]="resize" [rzHandles] = "'all'" class="resize-target">
+      缩放基础使用
+    </div>
+  </div>
+
+  <div class="resize-wrap" #contain>
+    <div [appResizable]="resize" [rzHandles] = "'all'" [rzContainment]="contain" class="resize-target">
+      缩放限制范围
+    </div>
+  </div>
+
+  <div class="resize-wrap" >
+    <div [appResizable]="resize"
+         [rzHandles] = "'all'"
+         class="resize-target"
+         [rzMinWidth]="80"
+         [rzMinHeight]="80"
+         [rzMaxWidth]="140"
+         [rzMaxHeight]="200"
+    >
+      缩放最小最大值
+    </div>
+  </div>
+
+</div>
+

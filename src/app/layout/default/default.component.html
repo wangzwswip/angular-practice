@@ -6,8 +6,11 @@
     </nz-sider>
     <nz-layout class="layout-nz">
       <nz-content style="background:#fff;">
-        <router-outlet>
-        </router-outlet>
+        <div [@routeAnimation]="getAnimationData(routerOutlet)" style="height: 100%">
+          <router-outlet #routerOutlet="outlet"></router-outlet>
+        </div>
+        <!--<router-outlet>
+        </router-outlet>-->
       </nz-content>
       <nz-footer style="text-align: center;" class="footer">
         树深时见鹿，溪午不闻钟 ©{{date}} By

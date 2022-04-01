@@ -1,3 +1,5 @@
 <ngx-loading-bar color="#32cd32" height="6px" diameter="24px"></ngx-loading-bar>
 <simple-notifications [options]="notificationsOptions"></simple-notifications>
-<router-outlet></router-outlet>
+<div [@routeAnimation]="getAnimationData(routerOutlet)" style="height: 100%">
+  <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>

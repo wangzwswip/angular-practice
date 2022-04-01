@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from '@shared';
 
@@ -24,6 +25,7 @@ const COMPONENTS = [
     ...COMPONENTS
   ],
   imports: [
+    BrowserAnimationsModule,
     SharedModule,
   ]
 })

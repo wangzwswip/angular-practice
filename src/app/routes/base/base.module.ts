@@ -18,7 +18,11 @@ import { HeroProfileComponent } from './hero-profile/hero-profile.component';
 import {AdBannerComponent} from "./ad-banner.component";
 
 import {AdService} from "./ad.service";
+import {HeroService} from "./hero.service";
 import { DirectiveExampleComponent } from './directive-example/directive-example.component';
+import { BaseTwoComponent } from './base-two/base-two.component';
+import { BaseThreeComponent } from './base-three/base-three.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 
 @NgModule({
@@ -35,8 +39,11 @@ import { DirectiveExampleComponent } from './directive-example/directive-example
     DirectiveExampleComponent,
     HighlightDirective,
     UnlessDirective,
+    BaseTwoComponent,
+    BaseThreeComponent,
+    HeroDetailComponent,
   ],
-  providers: [ AdService ],
+  providers: [ AdService, HeroService ],
   imports: [
     CommonModule,
     BaseRoutingModule,

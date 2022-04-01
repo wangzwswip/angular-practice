@@ -31,6 +31,16 @@ export class MenusService {
           link: 'base/directive-example',
           icon: '',
         },
+        {
+          title: '路由相关',
+          link: 'base/base-two',
+          icon: '',
+        },
+        {
+          title: '路由参数',
+          link: 'base/base-three',
+          icon: '',
+        },
       ]
     },
     {

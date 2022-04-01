@@ -1,0 +1,13 @@
+<div class="base-three">
+  <div class="base-left">
+    <h2>列表</h2>
+    <ul class="base-list">
+      <li *ngFor="let hero of heroes$ | async" [class.selected]="hero.id === selectedId">
+        <a [routerLink]="['../hero-detail', hero.id]">
+          <span>{{hero.id}}</span>
+          <span>{{hero.name}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
